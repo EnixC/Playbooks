@@ -1,0 +1,33 @@
+---
+- name: My first Playbook
+  hosts: All
+ 
+  tasks:
+    - name: Set net.core.default_qdisc
+      sysctl:
+        name: net.core.default_qdisc
+        value: fq
+        state: present
+
+    - name: Set net.ipv4.tcp_congestion_control
+      sysctl:
+        name: net.ipv4.tcp_congestion_control
+        value: bbr
+        state: present
+    
+    - name: Install Apps
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+        state: present       
+      with_items:
+      - 'curl'
+      - 'wget'
+      - 'vnstat'
+      - 'nload'
+      - 'iperf3'
+
+    - name: Install ansible-bender
+      pip:
+        name: ansible-bender
+        executable: pip3

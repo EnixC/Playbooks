@@ -1,0 +1,11 @@
+- name: Set net.core.default_qdisc
+  sysctl:
+    name: net.core.default_qdisc
+    value: fq
+    state: present
+
+- name: Set net.ipv4.tcp_congestion_control
+  sysctl:
+    name: net.ipv4.tcp_congestion_control
+    value: bbr
+    state: present
