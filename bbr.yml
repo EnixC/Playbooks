@@ -1,6 +1,6 @@
 ---
 - name: My first Playbook
-  hosts: All
+  hosts: nodes
  
   tasks:
     - name: Set net.core.default_qdisc
