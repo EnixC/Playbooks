@@ -1,6 +1,6 @@
 ---
 - name: restart pass
-  hosts: aliyun
+  hosts: Aliyun
   become: yes  # 如果需要提权，请设置为 yes
   tasks:
     - name: restart pass
